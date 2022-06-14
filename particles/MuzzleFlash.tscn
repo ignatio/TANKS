@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.0377358, 0.108491, 0.283019, 0.938679 )
+colors = PoolColorArray( 1, 1, 1, 0.705882, 1, 0.94902, 0, 0.686275, 1, 0.52549, 0, 0.541176, 0.74902, 0, 0, 0.117647 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.0297872, 0.313636 ), 0.0, 0.0, 0, 0, Vector2( 0.285106, 0.809091 ), 0.0, 0.0, 0, 0, Vector2( 0.982979, 0.281818 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 25.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="muzzleFlash" type="Particles2D"]
+emitting = false
+amount = 10
+one_shot = true
+speed_scale = 10.0
+process_material = SubResource( 5 )

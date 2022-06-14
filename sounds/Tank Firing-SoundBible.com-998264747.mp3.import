@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Tank Firing-SoundBible.com-998264747.mp3-2c7915abcd3b1e540f9393471271209a.mp3str"
+
+[deps]
+
+source_file="res://sounds/Tank Firing-SoundBible.com-998264747.mp3"
+dest_files=[ "res://.import/Tank Firing-SoundBible.com-998264747.mp3-2c7915abcd3b1e540f9393471271209a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

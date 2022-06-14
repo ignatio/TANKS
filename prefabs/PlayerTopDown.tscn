@@ -2,8 +2,8 @@
 
 [ext_resource path="res://rodrigomove.gd" type="Script" id=1]
 [ext_resource path="res://prefabs/PlayerTopDown.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://tank turret.png" type="Texture" id=3]
-[ext_resource path="res://Sandmap.tres" type="TileSet" id=5]
+[ext_resource path="res://sprites/tank turret.png" type="Texture" id=3]
+[ext_resource path="res://tiles/Sandmap.tres" type="TileSet" id=5]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 24, 34.5 )

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://apround.png" type="Texture" id=1]
-[ext_resource path="res://Bullet.gd" type="Script" id=2]
+[ext_resource path="res://sprites/apround.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Bullet.gd" type="Script" id=2]
 [ext_resource path="res://prefabs/expolsion1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/Blast-SoundBible.com-2068539061.mp3" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 4.0
@@ -33,6 +34,10 @@ z_index = 8
 frame = 0
 playing = false
 
+[node name="blast" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
 [connection signal="area_entered" from="." to="." method="_on_Bullet_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
 [connection signal="animation_finished" from="explosion" to="." method="_on_explosion_animation_finished"]
+[connection signal="finished" from="blast" to="." method="_on_blast_finished"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Blast-SoundBible.com-2068539061.mp3-cd998021962cc8735dcc6e5750a0725a.mp3str"
+
+[deps]
+
+source_file="res://sounds/Blast-SoundBible.com-2068539061.mp3"
+dest_files=[ "res://.import/Blast-SoundBible.com-2068539061.mp3-cd998021962cc8735dcc6e5750a0725a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

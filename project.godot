@@ -16,7 +16,7 @@ _global_script_class_icons={
 
 config/name="TANKS"
 run/main_scene="res://test.tscn"
-config/icon="res://icon.png"
+config/icon="res://sprites/icon.png"
 
 [importer_defaults]
 
@@ -82,4 +82,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/options/use_nvidia_rect_flicker_workaround=true
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"
