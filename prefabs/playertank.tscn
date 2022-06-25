@@ -1,60 +1,65 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/rodrigomove.gd" type="Script" id=1]
-[ext_resource path="res://sprites/tank turret.png" type="Texture" id=2]
-[ext_resource path="res://prefabs/PlayerTopDown.tres" type="SpriteFrames" id=3]
 [ext_resource path="res://scripts/Turret.gd" type="Script" id=4]
 [ext_resource path="res://sprites/aimer.png" type="Texture" id=5]
 [ext_resource path="res://particles/sandpuff.tscn" type="PackedScene" id=6]
 [ext_resource path="res://particles/MuzzleFlash.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sounds/Tank Firing-SoundBible.com-998264747.mp3" type="AudioStream" id=8]
+[ext_resource path="res://sprites/sherman_e8 turret.png" type="Texture" id=11]
+[ext_resource path="res://sprites/sherman_e8 body.png" type="Texture" id=12]
+
+[sub_resource type="PhysicsMaterial" id=9]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 24, 34.5 )
+extents = Vector2( 123, 63 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 25, 6 )
+extents = Vector2( 52, 6.5 )
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 17.0
 
-[node name="tank" type="KinematicBody2D"]
-position = Vector2( 498, 294 )
+[node name="Player" type="RigidBody2D"]
 collision_layer = 2
+collision_mask = 253
+physics_material_override = SubResource( 9 )
+gravity_scale = 0.0
+continuous_cd = 1
+can_sleep = false
+linear_damp = 2.0
+angular_damp = 3.0
 script = ExtResource( 1 )
+enginePower = 300
 
 [node name="tankcol" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -2.5 )
+position = Vector2( -6, -1 )
+z_index = 1
 shape = SubResource( 4 )
 
-[node name="tanksp" type="AnimatedSprite" parent="."]
-scale = Vector2( 3, 3 )
-frames = ExtResource( 3 )
-animation = "move"
-speed_scale = 3.0
-offset = Vector2( 0, -5 )
+[node name="Body" type="Sprite" parent="."]
+texture = ExtResource( 12 )
 
 [node name="Turret" type="RigidBody2D" parent="."]
 collision_layer = 2
-collision_mask = 253
+collision_mask = 249
+mass = 0.01
 gravity_scale = 0.0
 script = ExtResource( 4 )
 
-[node name="turrsp" type="Sprite" parent="Turret"]
-rotation = 1.5708
-scale = Vector2( 3, 3 )
-texture = ExtResource( 2 )
-offset = Vector2( 0, -5 )
+[node name="Turret" type="Sprite" parent="Turret"]
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Turret"]
-position = Vector2( 37, 0 )
+position = Vector2( 104, 0.5 )
+z_index = 1
 shape = SubResource( 5 )
 
 [node name="Position2D" type="Position2D" parent="Turret"]
-position = Vector2( 65, 0 )
+position = Vector2( 159, 0 )
 
 [node name="Aimer" type="Area2D" parent="Turret" groups=["targetable"]]
-position = Vector2( 250, 0 )
+position = Vector2( 500, 0 )
 
 [node name="crosshair" type="Sprite" parent="Turret/Aimer"]
 scale = Vector2( 2, 2 )
@@ -66,7 +71,7 @@ scale = Vector2( 2, 2 )
 shape = SubResource( 6 )
 
 [node name="muzzleFlash" parent="Turret" instance=ExtResource( 7 )]
-position = Vector2( 65, 0 )
+position = Vector2( 156, 0 )
 rotation = -1.5708
 
 [node name="fireSound" type="AudioStreamPlayer2D" parent="Turret"]
@@ -78,14 +83,17 @@ node_b = NodePath("../Turret")
 bias = 0.9
 
 [node name="Particles" type="Node2D" parent="."]
+position = Vector2( 1, 117 )
 
 [node name="Sand Puff" parent="Particles" instance=ExtResource( 6 )]
-position = Vector2( -20, -30 )
+position = Vector2( -128, -165 )
+rotation = 1.5708
 scale = Vector2( 1, 2 )
 z_index = -1
 
 [node name="Sand Puff2" parent="Particles" instance=ExtResource( 6 )]
-position = Vector2( 20, -30 )
+position = Vector2( -128, -70 )
+rotation = 1.5708
 scale = Vector2( 1, 2 )
 z_index = -1
 

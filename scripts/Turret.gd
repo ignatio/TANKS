@@ -7,7 +7,7 @@ var angular_speed = 1.0
 onready var bullet = preload("res://prefabs/Bullet.tscn")
 onready var muzzleFlash = preload("res://particles/MuzzleFlash.tscn")
 onready var muzzle = $Position2D
-onready var tank = $tank
+onready var tank = "../$Player"
 
 func _physics_process(delta):
 	var angle = get_local_mouse_position().angle()

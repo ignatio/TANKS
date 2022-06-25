@@ -1,0 +1,17 @@
+[gd_scene format=2]
+
+[node name="Tank" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 15
+
+[node name="Body" type="Sprite" parent="."]
+
+[node name="bodyCol" type="CollisionShape2D" parent="."]
+
+[node name="GunTimer" type="Timer" parent="."]
+
+[node name="Turret" type="Sprite" parent="."]
+
+[node name="Muzzle" type="Position2D" parent="Turret"]
+
+[node name="turrCol" type="CollisionShape2D" parent="Turret"]

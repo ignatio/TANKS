@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://prefabs/Tank.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/sherman_e8 turret.png" type="Texture" id=2]
+[ext_resource path="res://sprites/sherman_e8 body.png" type="Texture" id=3]
+[ext_resource path="res://prefabs/Player.gd" type="Script" id=4]
+[ext_resource path="res://scripts/PlayerTurret.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 61.1647, 124.451 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48.1085, 8.46354 )
+
+[node name="Player" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 4 )
+speed = 200
+rotationSpeed = 1.0
+gunCooldown = 0.4
+health = 100
+
+[node name="Body" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="bodyCol" parent="." index="1"]
+position = Vector2( 0.356444, 3.69011 )
+shape = SubResource( 1 )
+
+[node name="Turret" parent="." index="3"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 5 )
+
+[node name="TurretSPR" parent="Turret" index="0"]
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="Muzzle" parent="Turret/TurretSPR" index="0"]
+position = Vector2( 0, -160 )
+
+[node name="turrCol" parent="Turret" index="1"]
+position = Vector2( 107.768, 0.250877 )
+shape = SubResource( 2 )
